@@ -49,7 +49,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Categories</a>
+                        <a href="categories.php"><i class="fa fa-fw fa-table"></i> Categories</a>
                     </li>
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Comments</a>
