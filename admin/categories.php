@@ -83,7 +83,7 @@
                                     if (empty($update_cat_title)){
                                         echo "<h3>This field should be filled</h3>";
                                     } else {
-                                        $query = "UPDATE categories SET cat_title = $update_cat_title WHERE cat_id = $edit_id";
+                                        $query = "UPDATE categories SET cat_title = '{$update_cat_title}' WHERE cat_id = $edit_id";
                                         $update_category_query = mysqli_query($connection,$query);
                                         if (!$update_category_query){
                                             die("QUERY FAILED!". mysqli_error($connection));
