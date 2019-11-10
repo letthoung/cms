@@ -19,7 +19,7 @@
                         
                         <div class="col-xs-6">
                             <!-- Add a category query -->
-                            <?php add_categories(); ?>
+                            <?php add_category(); ?>
                             
                             <!-- Add categories form -->
                             <form action="" method="post">
@@ -59,32 +59,12 @@
                                    <!-- Show the table of category id and category title
                                         This is automatically run when the web page is rendered -->
                                     <?php
-                                        $query = "SELECT * FROM categories";
-                                        $select_all_categories_query = mysqli_query($connection,$query);
-                                        while ($row = mysqli_fetch_assoc($select_all_categories_query)){
-                                            $cat_id = $row['cat_id'];
-                                            $cat_title = $row['cat_title'];
-                                            echo "<tr>";
-                                            echo "<td>{$cat_id}</td>";
-                                            echo "<td>{$cat_title}</td>";
-                                            echo "<td><a href='categories.php?delete={$cat_id}'>DELETE</a></td>";
-                                            echo "<td><a href='categories.php?edit={$cat_id}'>EDIT</a></td>";
-                                            echo "</tr>";
-                                        }
+                                        find_all_categories();
                                     ?>
                                     
                                     <!-- Delete a category -->
                                     <?php
-                                        if (isset($_GET['delete'])){
-                                            $delete_id = $_GET['delete'];
-                                            $query = "DELETE FROM categories WHERE cat_id = {$delete_id}";
-                                            $delete_query = mysqli_query($connection,$query);
-                                            if(!$delete_query){
-                                                die("QUERY FAILED! ". mysqli_error($connection));
-                                            }
-                                            header("location: categories.php");
-                                        }
-                                        
+                                        delete_category();
                                     ?>
                                 </tbody>
                             </table>
