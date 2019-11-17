@@ -48,6 +48,7 @@
                         <td>{$post_tags}</td>
                         <td>{$post_comment_count}</td>
                         <td>{$post_date}</td>
+                        <td><a href='posts.php?source=edit_post&edit_id={$post_id}'>EDIT</a></td>
                         <td><a href='posts.php?delete={$post_id}'>DELETE</a></td>
                        </tr>";
             }
