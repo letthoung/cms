@@ -14,6 +14,17 @@
     </thead>
     <tbody>
         <?php
+            if(isset($_GET['delete'])){
+                $delete_id = $_GET['delete'];
+                $query = "DELETE FROM posts WHERE post_id = {$delete_id}";
+                $delete_query = mysqli_query($connection, $query);
+                
+                if(!$delete_query){
+                    die("QUERY FAILED!! " . mysqli_error($connection));
+                }
+            }
+        
+        
             $query = "SELECT * FROM posts";
             $get_all_posts_query = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($get_all_posts_query)){
@@ -37,6 +48,7 @@
                         <td>{$post_tags}</td>
                         <td>{$post_comment_count}</td>
                         <td>{$post_date}</td>
+                        <td><a href='posts.php?delete={$post_id}'>DELETE</a></td>
                        </tr>";
             }
         ?>
